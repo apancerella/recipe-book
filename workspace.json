@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "recipe-book": "apps/recipe-book",
+    "recipe-book-e2e": "apps/recipe-book-e2e"
+  }
+}
