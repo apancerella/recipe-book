@@ -1,10 +1,10 @@
 module.exports = {
-  displayName: 'recipe-book',
+  displayName: 'recipe-book-ui',
   preset: '../../jest.preset.js',
   transform: {
     '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nrwl/react/plugins/jest',
     '^.+\\.[tj]sx?$': 'babel-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/apps/recipe-book',
+  coverageDirectory: '../../coverage/apps/recipe-book-ui',
 };

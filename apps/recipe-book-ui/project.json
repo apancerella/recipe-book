@@ -1,6 +1,6 @@
 {
-  "root": "apps/recipe-book",
-  "sourceRoot": "apps/recipe-book/src",
+  "root": "apps/recipe-book-ui",
+  "sourceRoot": "apps/recipe-book-ui/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -8,17 +8,17 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/recipe-book",
-        "index": "apps/recipe-book/src/index.html",
+        "outputPath": "dist/apps/recipe-book-ui",
+        "index": "apps/recipe-book-ui/src/index.html",
         "baseHref": "/",
-        "main": "apps/recipe-book/src/main.tsx",
-        "polyfills": "apps/recipe-book/src/polyfills.ts",
-        "tsConfig": "apps/recipe-book/tsconfig.app.json",
+        "main": "apps/recipe-book-ui/src/main.tsx",
+        "polyfills": "apps/recipe-book-ui/src/polyfills.ts",
+        "tsConfig": "apps/recipe-book-ui/tsconfig.app.json",
         "assets": [
-          "apps/recipe-book/src/favicon.ico",
-          "apps/recipe-book/src/assets"
+          "apps/recipe-book-ui/src/favicon.ico",
+          "apps/recipe-book-ui/src/assets"
         ],
-        "styles": ["apps/recipe-book/src/styles.css"],
+        "styles": ["apps/recipe-book-ui/src/styles.css"],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"
       },
@@ -26,8 +26,8 @@
         "production": {
           "fileReplacements": [
             {
-              "replace": "apps/recipe-book/src/environments/environment.ts",
-              "with": "apps/recipe-book/src/environments/environment.prod.ts"
+              "replace": "apps/recipe-book-ui/src/environments/environment.ts",
+              "with": "apps/recipe-book-ui/src/environments/environment.prod.ts"
             }
           ],
           "optimization": true,
@@ -42,12 +42,12 @@
     "serve": {
       "executor": "@nrwl/web:dev-server",
       "options": {
-        "buildTarget": "recipe-book:build",
+        "buildTarget": "recipe-book-ui:build",
         "hmr": true
       },
       "configurations": {
         "production": {
-          "buildTarget": "recipe-book:build:production",
+          "buildTarget": "recipe-book-ui:build:production",
           "hmr": false
         }
       }
@@ -56,14 +56,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/recipe-book/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/recipe-book-ui/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/recipe-book"],
+      "outputs": ["coverage/apps/recipe-book-ui"],
       "options": {
-        "jestConfig": "apps/recipe-book/jest.config.js",
+        "jestConfig": "apps/recipe-book-ui/jest.config.js",
         "passWithNoTests": true
       }
     }

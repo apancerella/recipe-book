@@ -1,0 +1,52 @@
+{
+  "root": "apps/recipe-book-server",
+  "sourceRoot": "apps/recipe-book-server/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/recipe-book-server",
+        "main": "apps/recipe-book-server/src/main.ts",
+        "tsConfig": "apps/recipe-book-server/tsconfig.app.json",
+        "assets": ["apps/recipe-book-server/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/recipe-book-server/src/environments/environment.ts",
+              "with": "apps/recipe-book-server/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:execute",
+      "options": {
+        "buildTarget": "recipe-book-server:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/recipe-book-server/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/recipe-book-server"],
+      "options": {
+        "jestConfig": "apps/recipe-book-server/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
