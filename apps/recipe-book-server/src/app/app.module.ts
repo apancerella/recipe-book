@@ -5,22 +5,27 @@ import { join } from 'path';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { SetResolver } from './set.resolver';
+import { DirectionModule } from './mongo/direction/direction.module';
+import { IngredientModule } from './mongo/ingredient/ingredient.module';
+import { RecipeModule } from './mongo/recipe/recipe.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(''),
+		MongooseModule.forRoot('mongodb+srv://testuser:ChefPassword@masterchefcluster.8v9dw.mongodb.net/MasterChefDb?retryWrites=true&w=majority'),
     GraphQLModule.forRootAsync({
       useFactory: () => ({
         typePaths: ['./**/*.graphql'],
         definitions: {
-          path: join(process.cwd(), './apps/recipe-book-server/src/app/graphql/graphql.schema.ts'),
+          path: join(process.cwd(), './app/graphql/graphql.schema.ts'),
           outputAs: 'class'
         }
       })
-    })
+    }),
+		RecipeModule,
+		IngredientModule,
+		DirectionModule
   ],
   controllers: [AppController],
-  providers: [AppService, SetResolver],
+  providers: [AppService]
 })
 export class AppModule {}
