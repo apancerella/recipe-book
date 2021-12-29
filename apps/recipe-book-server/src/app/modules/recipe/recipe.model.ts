@@ -12,20 +12,20 @@ export class Recipe {
 	_id: MongooseSchema.Types.ObjectId;
 
 	@Field(() => String)
-  @Prop()
-  name: string;
+	@Prop()
+	name: string;
 
 	@Field(() => String)
 	@Prop()
 	duration: number;
 
-	@Field(() => [String])
+	@Field(() => [Ingredient])
 	@Prop({ type: [MongooseSchema.Types.ObjectId], ref: Ingredient.name })
-	ingredients: Ingredient[]
+	ingredients: MongooseSchema.Types.ObjectId[] | Ingredient[]
 
-	@Field(() => [String])
+	@Field(() => [Direction])
 	@Prop({ type: [MongooseSchema.Types.ObjectId], ref: Direction.name })
-	directions: Direction[]
+	directions: MongooseSchema.Types.ObjectId[] | Direction[]
 }
 
 export type RecipeDocument = Recipe & Document;

@@ -13,8 +13,8 @@ export class Ingredient {
 	name: string;
 
 	@Field(() => Number)
-  @Prop()
-  quantity: number;
+	@Prop()
+	quantity: number;
 
 	@Field(() => String)
 	@Prop()

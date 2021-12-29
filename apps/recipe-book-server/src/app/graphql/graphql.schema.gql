@@ -1,0 +1,95 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateDirectionInput {
+  description: String!
+  step: Float!
+}
+
+input CreateIngredientInput {
+  duration: Float!
+  name: String!
+}
+
+input CreateRecipeInput {
+  directions: [String!]
+  duration: Float!
+  ingredients: [String!]
+  name: String!
+}
+
+type Direction {
+  _id: String!
+  description: String!
+  step: String!
+}
+
+type Ingredient {
+  _id: String!
+  name: String!
+  quantity: Float!
+  quantityType: String!
+}
+
+input ListDirectionInput {
+  _id: String!
+  description: String!
+  step: Float!
+}
+
+input ListRecipeInput {
+  _id: String!
+  directions: [String!]
+  duration: Float!
+  ingredients: [String!]
+  name: String!
+}
+
+type Mutation {
+  createDirection(payload: CreateDirectionInput!): Direction!
+  createIngredient(payload: CreateIngredientInput!): Ingredient!
+  createRecipe(payload: CreateRecipeInput!): Recipe!
+  deleteDirection(_id: String!): Direction!
+  deleteIngredient(_id: String!): Ingredient!
+  deleteRecipe(_id: String!): Recipe!
+  updateDirection(payload: UpdateDirectionInput!): Direction!
+  updateIngredient(payload: UpdateIngredientInput!): Ingredient!
+  updateRecipe(payload: UpdateRecipeInput!): Recipe!
+}
+
+type Query {
+  direction(_id: String!): Direction!
+  hobbies(filters: ListDirectionInput): [Direction!]!
+  ingredient(_id: String!): Ingredient!
+  recipe(_id: String!): Recipe!
+  recipes(filters: ListRecipeInput): [Recipe!]!
+}
+
+type Recipe {
+  _id: String!
+  directions(populate: Boolean!): [Direction!]!
+  duration: String!
+  ingredients(populate: Boolean!): [Ingredient!]!
+  name: String!
+}
+
+input UpdateDirectionInput {
+  _id: String!
+  description: String!
+  step: Float!
+}
+
+input UpdateIngredientInput {
+  _id: String!
+  duration: Float!
+  name: String!
+}
+
+input UpdateRecipeInput {
+  _id: String!
+  directions: [String!]
+  duration: Float!
+  ingredients: [String!]
+  name: String!
+}

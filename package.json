@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "npx nx serve recipe-book-ui",
+    "start-ui": "npx nx serve recipe-book-ui",
     "start-api": "npx nx serve recipe-book-server",
     "build": "nx build",
     "test": "nx test"
