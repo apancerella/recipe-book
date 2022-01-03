@@ -1,5 +1,7 @@
-import { Field, InputType } from '@nestjs/graphql';
+import { Field, InputType,  } from '@nestjs/graphql';
 import { Schema as MongooseSchema } from 'mongoose';
+import { CreateIngredientInput } from '../ingredient/ingredient.inputs';
+import { Ingredient } from '../ingredient/ingredient.model';
 
 @InputType()
 export class CreateRecipeInput {
@@ -9,8 +11,8 @@ export class CreateRecipeInput {
   @Field(() => Number)
 	duration?: number;
 
-  @Field(() => [String], { nullable: true })
-  ingredients?: MongooseSchema.Types.ObjectId[];
+  @Field(() => [CreateIngredientInput], { nullable: true })
+  ingredients?: CreateIngredientInput[];
 
   @Field(() => [String], { nullable: true })
   directions?: MongooseSchema.Types.ObjectId[];

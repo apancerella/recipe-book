@@ -5,6 +5,7 @@ import { Field, ObjectType } from '@nestjs/graphql';
 import { Direction } from '../direction/direction.model';
 import { Ingredient } from '../ingredient/ingredient.model';
 
+
 @ObjectType()
 @Schema() 
 export class Recipe { 

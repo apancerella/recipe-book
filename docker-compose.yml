@@ -1,0 +1,57 @@
+#docker build -t recipe-book-base-image:nx-base
+#docker-compose build --no-cache
+#docker-compose up -d
+#docker-compose down
+
+#docker login -u apancerella
+#docker tag recipe-book-base-image apancerella/recipe-book-base-image
+#docker push apancerella/recipe-book-base-image
+
+#docker tag recipe-book-base-image:nx-base apancerella/recipe-book-base-image:nx-base
+#docker push apancerella/recipe-book-base-image:nx-base
+version: "3.8"
+
+networks:
+  corp:
+    driver: bridge
+
+services:
+  recipe-book-server:
+    container_name: recipe-book-server
+    build:
+      context: ./
+      cache_from:
+        - recipe-book-base-image:nx-base
+      dockerfile: ./apps/recipe-book-server/Dockerfile
+      args:
+        NODE_ENV: "development"
+        BUILD_FLAG: ""
+    image: recipe-book-server:nx-dev
+    ports:
+      - 4939:4939
+    environment:
+      NODE_ENV: "development"
+      PORT: 4939
+    networks:
+      - corp
+    restart: on-failure
+
+  recipe-book-ui:
+    container_name: recipe-book-ui
+    build:
+      context: ./
+      cache_from:
+        - nginx:1.19.2
+      dockerfile: ./apps/recipe-book-ui/Dockerfile
+      args:
+        NODE_ENV: "development"
+        BUILD_FLAG: ""
+    image: recipe-book-ui:nx-dev
+    ports:
+      - 4900:80
+    environment:
+      NODE_ENV: "development"
+      PORT: 4900
+    networks:
+      - corp
+    restart: on-failure

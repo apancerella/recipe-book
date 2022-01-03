@@ -8,14 +8,15 @@ input CreateDirectionInput {
 }
 
 input CreateIngredientInput {
-  duration: Float!
   name: String!
+  quantity: Float!
+  quantityType: String!
 }
 
 input CreateRecipeInput {
   directions: [String!]
   duration: Float!
-  ingredients: [String!]
+  ingredients: [CreateIngredientInput!]
   name: String!
 }
 
@@ -82,8 +83,9 @@ input UpdateDirectionInput {
 
 input UpdateIngredientInput {
   _id: String!
-  duration: Float!
   name: String!
+  quantity: Float!
+  quantityType: String!
 }
 
 input UpdateRecipeInput {

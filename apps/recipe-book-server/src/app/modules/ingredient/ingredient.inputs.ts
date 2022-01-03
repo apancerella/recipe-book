@@ -7,7 +7,10 @@ export class CreateIngredientInput {
   name: string;
 
   @Field(() => Number)
-	duration?: number;
+	quantity?: number;
+
+  @Field(() => String)
+	quantityType?: string;
 }
 
 @InputType()
@@ -16,10 +19,13 @@ export class ListIngredientInput {
   _id?: MongooseSchema.Types.ObjectId;
 
   @Field(() => String)
-  name?: string;
+  name: string;
 
   @Field(() => Number)
-	duration?: number;
+	quantity?: number;
+
+  @Field(() => String)
+	quantityType?: string;
 }
 
 @InputType()
@@ -28,8 +34,11 @@ export class UpdateIngredientInput {
   _id: MongooseSchema.Types.ObjectId;
   
   @Field(() => String)
-  name?: string;
+  name: string;
 
   @Field(() => Number)
-	duration?: number;
+	quantity?: number;
+
+  @Field(() => String)
+	quantityType?: string;
 }
