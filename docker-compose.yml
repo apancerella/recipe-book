@@ -1,4 +1,4 @@
-#docker build -t recipe-book-base-image:nx-base
+#docker build -t recipe-book-base-image:nx-base .
 #docker-compose build --no-cache
 #docker-compose up -d
 #docker-compose down

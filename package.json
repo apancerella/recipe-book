@@ -6,10 +6,15 @@
     "start-ui": "npx nx serve recipe-book-ui",
     "start-api": "npx nx serve recipe-book-server",
     "build": "nx build",
+    "docker-base": "docker build -t recipe-book-base-image:nx-base .",
+    "docker-multi-build": "docker-compose build --no-cache",
+    "docker-up": "docker-compose up -d",
+    "docker-multi-stage-run": "npm run docker-base && npm run docker-multi-build && npm run docker-up",
     "test": "nx test"
   },
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.5.7",
     "@nestjs/common": "^8.0.0",
     "@nestjs/config": "^1.1.5",
     "@nestjs/core": "^8.0.0",

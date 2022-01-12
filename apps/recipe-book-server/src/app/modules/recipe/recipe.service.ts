@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Schema as MongooseSchema } from 'mongoose';
-import { Ingredient, IngredientDocument } from '../ingredient/ingredient.model';
+// import { Ingredient, IngredientDocument } from '../ingredient/ingredient.model';
 
 import { CreateRecipeInput, ListRecipeInput, UpdateRecipeInput } from './recipe.inputs';
 import { Recipe, RecipeDocument } from './recipe.model';
@@ -11,20 +11,20 @@ import { Recipe, RecipeDocument } from './recipe.model';
 export class RecipeService {
   constructor(
     @InjectModel(Recipe.name) private recipeModel: Model<RecipeDocument>,
-    @InjectModel(Ingredient.name) private ingredientModel: Model<IngredientDocument>
+    // @InjectModel(Ingredient.name) private ingredientModel: Model<IngredientDocument>
   ) {}
 
   create(payload: CreateRecipeInput) {
 
-    payload.ingredients?.forEach(ingredient => {
-      const createdIngredient = new this.ingredientModel(ingredient);
-      createdIngredient.save();
-    })
-    const createdRecipe = new this.recipeModel(payload);
+    // payload.ingredients?.forEach(ingredient => {
+    //   const createdIngredient = new this.ingredientModel(ingredient);
+    //   createdIngredient.save();
+    // })
+    // const createdRecipe = new this.recipeModel(payload);
     // console.log(createdRecipe.)
     // createdRecipe.ingredients[0].save();
 
-    console.log(payload)
+    // console.log(payload)
     // return createdRecipe.save();
   }
 
