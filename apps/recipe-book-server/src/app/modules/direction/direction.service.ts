@@ -14,7 +14,8 @@ export class DirectionService {
 
   create(payload: CreateDirectionInput) {
     const createdRecipe = new this.directionModel(payload);
-    return createdRecipe.save();
+    createdRecipe.save();
+		return createdRecipe;
   }
 
   getById(_id: MongooseSchema.Types.ObjectId) {

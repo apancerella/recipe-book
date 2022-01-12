@@ -14,7 +14,7 @@ input CreateIngredientInput {
 }
 
 input CreateRecipeInput {
-  directions: [String!]
+  directions: [CreateDirectionInput!]
   duration: Float!
   ingredients: [CreateIngredientInput!]
   name: String!

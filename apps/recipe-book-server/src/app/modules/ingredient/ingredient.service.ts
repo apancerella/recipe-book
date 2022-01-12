@@ -13,8 +13,9 @@ export class IngredientService {
   ) {}
 
   create(payload: CreateIngredientInput) {
-    const createdRecipe = new this.ingredientModel(payload);
-    return createdRecipe.save();
+    const createdIngredient = new this.ingredientModel(payload);
+    createdIngredient.save();
+		return createdIngredient
   }
 
   getById(_id: MongooseSchema.Types.ObjectId) {
